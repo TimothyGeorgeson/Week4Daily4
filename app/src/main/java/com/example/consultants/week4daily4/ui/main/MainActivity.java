@@ -2,6 +2,8 @@ package com.example.consultants.week4daily4.ui.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
@@ -14,6 +16,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
     public static final String TAG = MainActivity.class.getSimpleName() + "_TAG";
+
+    RecyclerView rvVenueList;
+    RecyclerViewAdapter adapter;
+    RecyclerView.LayoutManager layoutManager;
 
     MainPresenter presenter;
 
@@ -44,7 +50,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void onVenues(List<Venue> venueList) {
-
+        adapter = new RecyclerViewAdapter(venueList);
+        layoutManager = new LinearLayoutManager(this);
+        rvVenueList = findViewById(R.id.rvVenueList);
+        rvVenueList.setAdapter(adapter);
+        rvVenueList.setLayoutManager(layoutManager);
     }
 
     @Override

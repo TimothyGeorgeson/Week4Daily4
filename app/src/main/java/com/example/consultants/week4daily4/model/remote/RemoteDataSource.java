@@ -26,11 +26,6 @@ public class RemoteDataSource {
         return createInstance().create(RemoteService.class);
     }
 
-    //use call object
-//    public Call<DSGResponse> getRandomUser(String gender, int results) {
-//
-//        return getRemoteService().getVenue(gender, results);
-//    }
 
     //using rxjava
     public Observable<DSGResponse> getVenueObs() {

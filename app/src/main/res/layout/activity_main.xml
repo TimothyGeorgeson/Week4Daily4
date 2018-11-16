@@ -2,25 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
     <TextView
-        android:textSize="25sp"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dicks Sporting Goods" />
+        android:gravity="center"
+        android:text="Dicks Sporting Goods"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
 
     <Button
-        android:onClick="onShowVenues"
-        android:layout_margin="30sp"
-        android:layout_gravity="center"
-        android:textSize="18sp"
-        android:text="Show Venues"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="30sp"
+        android:onClick="onShowVenues"
+        android:text="Show Venues"
+        android:textSize="18sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvVenueList"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

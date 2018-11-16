@@ -24,7 +24,7 @@ public class MainPresenter implements MainContract.Presenter{
         repository.getVenues(new DSGCallback() {
             @Override
             public void onSuccess(List<Venue> venueList) {
-                Log.d(TAG, "onSuccess: ");
+                Log.d(TAG, "onSuccess: " + venueList.size());
                 view.onVenues(venueList);
             }
 
