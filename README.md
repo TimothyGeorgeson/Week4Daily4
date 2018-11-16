@@ -4,7 +4,7 @@ Coding Challenge
 Assignment Instructions:
 Complete the DSG coding challenge attached in MVP, Dagger, RxJava, Retrofit
 
-file:///C:/Users/Consultants/Downloads/Microsoft.SkypeApp_kzf8qxf38zg5c!App/All/Dick%20sporting%20goods%20challenge%20(2).pdf
+Uploaded file "Dick sporting goods challenge.pdf" into the repository with the coding challenge instructions
 
 
 Screenshots:
