@@ -1,7 +1,11 @@
 package com.example.consultants.week4daily4.ui.main;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +13,9 @@ import android.widget.TextView;
 
 import com.example.consultants.week4daily4.R;
 import com.example.consultants.week4daily4.model.DSGResponse.Venue;
+import com.example.consultants.week4daily4.ui.details.DetailsActivity;
 
+import java.io.InputStream;
 import java.util.List;
 
 public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -29,8 +35,8 @@ public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapt
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder viewHolder, int i) {
-        Venue venue = venueList.get(i);
+    public void onBindViewHolder(@NonNull final RecyclerViewAdapter.ViewHolder viewHolder, int i) {
+        final Venue venue = venueList.get(i);
 
         viewHolder.tvName.setText("Name: " + venue.getName());
         //one of the locations was null, so adding check
@@ -43,6 +49,24 @@ public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapt
         }
 
         viewHolder.tvRating.setText("Rating: " + venue.getRating().toString());
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String urlPicture = "";
+                if(venue.getPhotos().size() > 0) {
+                    urlPicture = venue.getPhotos().get(0).getUrl();
+                }
+
+                Intent intent = new Intent(viewHolder.itemView.getContext(), DetailsActivity.class);
+                intent.putExtra("name", viewHolder.tvName.getText());
+                intent.putExtra("city", viewHolder.tvCity.getText());
+                intent.putExtra("state", viewHolder.tvState.getText());
+                intent.putExtra("photo", urlPicture);
+
+                viewHolder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -1,6 +1,9 @@
 
 package com.example.consultants.week4daily4.model.DSGResponse;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
